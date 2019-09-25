@@ -1,0 +1,49 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <p class="display-4">Rewards</p>
+    </div>
+</div>
+<div class="container" ng-contoller="RewardController">
+    <div class="row">
+        <div class="col-4">
+            <!-- Current Point -->
+            <div class="card mb-3 shadow">
+                <div class="card-header">
+                    <h4 class="card-title m-0">Received Point</h4>
+                </div>
+                <div class="card-body">
+                    <div class="container-fluid d-flex flex-row justify-content-center my-4" ng-show="PointsIsLoading">
+                        <div class="spinner-border text-secondary" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                    <p class="card-text text-center display-2">{{ Points.received }}</p>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex flex-row justify-content-center">
+                        <button id="SpinButton" class="btn btn-success w-100" ng-click="startSpin();" ng-show="!wheelSpinning">Spin your Reward</button>
+                        <button id="ResetButton" class="btn btn-success w-100" ng-click="resetWheel();" ng-show="wheelSpinning">Spin Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="container d-flex flex-row justify-content-center">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td width="438" height="582" class="the_wheel" align="center" valign="center">
+                            <div id="loader" class="container-fluid flex-row justify-content-center my-4" style="display: flex;">
+                                <div class="spinner-border text-light" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                            <canvas id="canvas" width="434" height="434" style="display: none;">
+                                <p style="color: white;" align="center">Sorry, your browser doesn't support canvas. Please try another.</p>
+                            </canvas>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
